@@ -1,0 +1,16 @@
+[workspace]
+resolver = "2"
+members = [".", "arta-tokio"]
+default-members = ["."]
+
+[package]
+name = "arta"
+version = "0.1.0"
+edition = "2021"
+
+[package.metadata.docs.rs]
+rustdoc-args = ["--cfg", "docsrs"]
+
+[dependencies]
+cfg-if = "1.0.0"
+futures = "0.3.30"

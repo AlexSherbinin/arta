@@ -1,0 +1,19 @@
+[package]
+name = "arta-tokio"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+arta = { version = "0.1.0", path = ".." }
+cfg-if = "1.0.0"
+futures = "0.3.30"
+pin-project-lite = "0.2.14"
+static_assertions = "1.1.0"
+tokio = { version = "1.38.0", features = [
+	"time",
+	"net",
+	"fs",
+	"rt",
+	"process",
+] }
+tokio-util = { version = "0.7.11", features = ["compat"] }
