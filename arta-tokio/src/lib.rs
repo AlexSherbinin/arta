@@ -74,11 +74,21 @@
     clippy::min_ident_chars
 )]
 #![forbid(unreachable_pub, missing_docs)]
+#![cfg_attr(docsrs, feature(doc_cfg))]
 
+#[cfg(feature = "fs")]
+#[cfg_attr(docsrs, doc(cfg(feature = "fs")))]
 pub mod fs;
+#[cfg(feature = "net")]
+#[cfg_attr(docsrs, doc(cfg(feature = "net")))]
 pub mod net;
+#[cfg(feature = "process")]
+#[cfg_attr(docsrs, doc(cfg(feature = "process")))]
 pub mod process;
+#[cfg(feature = "rt")]
+#[cfg_attr(docsrs, doc(cfg(feature = "rt")))]
 pub mod task;
+#[cfg(feature = "time")]
 mod time;
 
 /// Struct representing tokio global runtime usage.

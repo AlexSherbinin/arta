@@ -1,5 +1,4 @@
 //! Tokio specific green thread management implementation.
-
 use crate::TokioGlobalRuntime;
 use arta::task::{RuntimeJoinHandle, TaskRuntime};
 use futures::{prelude::Future, FutureExt};
