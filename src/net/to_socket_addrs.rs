@@ -3,15 +3,29 @@ use std::{
     net::{IpAddr, Ipv4Addr, Ipv6Addr, SocketAddr, SocketAddrV4, SocketAddrV6},
 };
 
+/// A trait for objects which can be converted or resolved to one or more
+/// [`SocketAddr`] values.
+///
+/// An async version of [`std::net::ToSocketAddrs`].
 pub trait ToSocketAddrs<R>: Send + Sync
 where
     R: Send + Sync,
 {
+    /// Returned iterator over socket addresses which this type may correspond
+    /// to.
     type Iterator: Iterator<Item = SocketAddr> + Send;
+    /// Future that resolves addresses.
     type Future: Future<Output = std::io::Result<Self::Iterator>> + Send;
 
+    /// Converts this object to an iterator of resolved [`SocketAddr`]s.
     fn to_socket_addrs(&self, runtime: &R) -> Self::Future;
 
+    /// Utility method used to implement underlying logic for async runtime e.g. used in
+    /// `arta-tokio` for socket binding in [`RuntimeTcpListener`](`super::RuntimeTcpListener`).
+    /// This function will resolve the addresses from the input and then sequentially apply the
+    /// asynchronous function `f` to each address. If `f` returns `Ok(result)` for any address,
+    /// the process stops, and `result` is returned. If all attempts result in an error, the last
+    /// error encountered is returned.
     fn for_each_resolved_addr_until_success<T, Fut>(
         self,
         runtime: &R,
