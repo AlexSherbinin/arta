@@ -45,6 +45,17 @@ pub trait RuntimeCommand {
     /// Adds multiple arguments to pass to the program.
     fn args(&mut self, args: impl Iterator<Item = impl AsRef<OsStr>>) -> &mut Self;
 
+    /// Inserts or updates an explicit environment variable mapping.
+    ///
+    /// This method allows you to add an environment variable mapping to the spawned process or
+    /// overwrite a previously set value. You can use [`RuntimeCommand::envs`] to set multiple environment
+    /// variables simultaneously.
+    ///
+    /// Child processes will inherit environment variables from their parent process by default.
+    /// Environment variables explicitly set using [`RuntimeCommand::env`] take precedence over inherited
+    /// variables. You can disable environment variable inheritance entirely using
+    fn env(&mut self, key: impl AsRef<OsStr>, value: impl AsRef<OsStr>) -> &mut Self;
+
     /// Inserts or updates multiple explicit environment variable mappings.
     ///
     /// Child processes will inherit environment variables from their parent process by default.
