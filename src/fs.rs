@@ -127,7 +127,12 @@ pub trait FSRuntime: Send + Sync {
     ) -> impl Future<Output = std::io::Result<Vec<u8>>> + Send {
         async {
             let mut file = pin!(Self::File::open(self, OpenOptions::new().read(true), path).await?);
-            let file_size = file.metadata().await?.len() as usize;
+            let file_size: usize = file
+                .metadata()
+                .await?
+                .len()
+                .try_into()
+                .map_err(|err| std::io::Error::new(std::io::ErrorKind::InvalidInput, err))?;
 
             let mut buffer = Vec::with_capacity(file_size);
             file.read_to_end(&mut buffer).await?;
@@ -145,7 +150,12 @@ pub trait FSRuntime: Send + Sync {
     ) -> impl Future<Output = std::io::Result<String>> + Send {
         async {
             let mut file = pin!(Self::File::open(self, OpenOptions::new().read(true), path).await?);
-            let file_size = file.metadata().await?.len() as usize;
+            let file_size: usize = file
+                .metadata()
+                .await?
+                .len()
+                .try_into()
+                .map_err(|err| std::io::Error::new(std::io::ErrorKind::InvalidInput, err))?;
 
             let mut buffer = String::with_capacity(file_size);
             file.read_to_string(&mut buffer).await?;

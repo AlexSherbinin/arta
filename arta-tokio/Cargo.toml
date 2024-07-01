@@ -1,7 +1,14 @@
 [package]
 name = "arta-tokio"
-version = "0.1.0"
-edition = "2021"
+description = "Async abstractions implementation for Tokio"
+authors.workspace = true
+version.workspace = true
+repository.workspace = true
+readme.workspace = true
+license.workspace = true
+edition.workspace = true
+categories.workspace = true
+keywords.workspace = true
 
 [dependencies]
 arta = { version = "0.1.0", path = ".." }
