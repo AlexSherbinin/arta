@@ -49,6 +49,7 @@ cfg_if! {
     }
 }
 
+/// Tokio specific [`RuntimeTcpStream`] implementation.
 pub struct TokioTcpStream {
     pub(super) inner: Compat<tokio::net::TcpStream>,
 }

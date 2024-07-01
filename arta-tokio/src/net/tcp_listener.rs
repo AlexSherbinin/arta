@@ -46,6 +46,7 @@ cfg_if! {
     }
 }
 
+/// Tokio specific [`RuntimeTcpListener`] implementation.
 pub struct TokioTcpListener {
     inner: tokio::net::TcpListener,
 }

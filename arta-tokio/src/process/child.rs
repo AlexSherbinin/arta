@@ -7,6 +7,7 @@ use std::{
 };
 use tokio_util::compat::{TokioAsyncReadCompatExt, TokioAsyncWriteCompatExt};
 
+/// Tokio specific [`RuntimeChild`] implementation.
 pub struct TokioChild {
     pub(super) id: u32,
     pub(super) inner: tokio::process::Child,

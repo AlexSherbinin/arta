@@ -6,6 +6,7 @@ use std::{
     path::PathBuf,
 };
 
+/// Tokio specific [`RuntimeDirEntry`] implementation.
 pub struct TokioDirEntry {
     pub(super) inner: tokio::fs::DirEntry,
 }

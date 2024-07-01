@@ -3,14 +3,17 @@ use futures::{AsyncRead, AsyncWrite};
 use std::pin::Pin;
 use tokio_util::compat::Compat;
 
+/// Tokio specific async stdin implementation.
 pub struct TokioStdin<'a> {
     pub(super) inner: Compat<&'a mut tokio::process::ChildStdin>,
 }
 
+/// Tokio specific async stdout implementation.
 pub struct TokioStdout<'a> {
     pub(super) inner: Compat<&'a mut tokio::process::ChildStdout>,
 }
 
+/// Tokio specific async stderr implementation.
 pub struct TokioStderr<'a> {
     pub(super) inner: Compat<&'a mut tokio::process::ChildStderr>,
 }

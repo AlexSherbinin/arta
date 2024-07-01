@@ -4,6 +4,7 @@ use cfg_if::cfg_if;
 use futures::TryFutureExt;
 use std::future::Future;
 
+/// Tokio specific [`RuntimeUdpSocket`] implementation.
 pub struct TokioUdpSocket {
     inner: tokio::net::UdpSocket,
 }

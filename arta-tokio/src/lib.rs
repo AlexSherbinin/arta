@@ -4,4 +4,5 @@ pub mod process;
 pub mod task;
 pub mod time;
 
+/// Struct representing tokio global runtime usage.
 pub struct TokioGlobalRuntime;

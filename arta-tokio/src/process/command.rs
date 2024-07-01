@@ -8,6 +8,7 @@ use std::{
     process::{ExitStatus, Output},
 };
 
+/// Tokio specific [`RuntimeCommand`] implementation.
 pub struct TokioCommand {
     inner: tokio::process::Command,
 }

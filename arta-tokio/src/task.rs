@@ -1,3 +1,5 @@
+//! Tokio specific green thread management implementation.
+
 use crate::TokioGlobalRuntime;
 use arta::task::{RuntimeJoinHandle, TaskRuntime};
 use futures::{prelude::Future, FutureExt};
@@ -6,6 +8,7 @@ use std::{
     task::{Context, Poll},
 };
 
+/// Tokio specific [`RuntimeJoinHandle`] implementation.
 pub struct TokioJoinHandle<T> {
     inner: tokio::task::JoinHandle<T>,
 }

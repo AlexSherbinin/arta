@@ -51,6 +51,7 @@ cfg_if! {
     }
 }
 
+/// Tokio specific [`RuntimeFile`] implementation.
 pub struct TokioFile {
     inner: Compat<tokio::fs::File>,
 }

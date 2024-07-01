@@ -1,3 +1,4 @@
+//! Tokio specific filesystem manipulation implementations.
 mod dir_entry;
 mod file;
 
