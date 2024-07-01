@@ -1,5 +1,5 @@
 use super::{TokioStderr, TokioStdin, TokioStdout};
-use crate::runtimes::TokioGlobalRuntime;
+use crate::TokioGlobalRuntime;
 use arta::process::RuntimeChild;
 use std::{
     future::Future,

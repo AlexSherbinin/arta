@@ -1,5 +1,5 @@
 use super::TokioTcpStream;
-use crate::runtimes::TokioGlobalRuntime;
+use crate::TokioGlobalRuntime;
 use arta::net::{NetRuntime, RuntimeTcpListener};
 use cfg_if::cfg_if;
 use futures::TryFutureExt;

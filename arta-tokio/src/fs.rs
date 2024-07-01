@@ -4,7 +4,7 @@ mod file;
 pub use dir_entry::*;
 pub use file::*;
 
-use crate::runtimes::TokioGlobalRuntime;
+use crate::TokioGlobalRuntime;
 use arta::fs::FSRuntime;
 use futures::prelude::Stream;
 use std::{

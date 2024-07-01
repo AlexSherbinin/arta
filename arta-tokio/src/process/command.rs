@@ -1,5 +1,5 @@
 use super::TokioChild;
-use crate::runtimes::TokioGlobalRuntime;
+use crate::TokioGlobalRuntime;
 use arta::process::{ProcessRuntime, RuntimeCommand};
 use std::{
     ffi::OsStr,

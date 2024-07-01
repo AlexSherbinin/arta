@@ -1,4 +1,4 @@
-use crate::runtimes::TokioGlobalRuntime;
+use crate::TokioGlobalRuntime;
 use arta::time::TimeRuntime;
 use std::{future::Future, time::Duration};
 

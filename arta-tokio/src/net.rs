@@ -6,7 +6,7 @@ pub use tcp_listener::*;
 pub use tcp_stream::*;
 pub use udp_socket::*;
 
-use crate::runtimes::TokioGlobalRuntime;
+use crate::TokioGlobalRuntime;
 use arta::net::NetRuntime;
 
 impl NetRuntime for TokioGlobalRuntime {

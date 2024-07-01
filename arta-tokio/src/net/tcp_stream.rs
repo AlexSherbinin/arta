@@ -1,4 +1,4 @@
-use crate::runtimes::TokioGlobalRuntime;
+use crate::TokioGlobalRuntime;
 use arta::net::{RuntimeTcpStream, ToSocketAddrs};
 use cfg_if::cfg_if;
 use futures::{prelude::Future, AsyncRead, AsyncWrite, TryFutureExt};

@@ -1,4 +1,4 @@
-use crate::runtimes::TokioGlobalRuntime;
+use crate::TokioGlobalRuntime;
 use arta::task::{RuntimeJoinHandle, TaskRuntime};
 use futures::{prelude::Future, FutureExt};
 use std::{
