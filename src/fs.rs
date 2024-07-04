@@ -94,7 +94,7 @@ pub trait FSRuntime: Send + Sync {
     /// Creates a new symbolic link on the filesystem.
     ///
     /// This is an async version of [`std::os::unix::fs::symlink`]
-    #[cfg(unix)]
+    #[cfg(any(unix, doc))]
     #[cfg_attr(docsrs, doc(cfg(unix)))]
     fn symlink(
         &self,
