@@ -94,9 +94,33 @@ pub trait FSRuntime: Send + Sync {
     /// Creates a new symbolic link on the filesystem.
     ///
     /// This is an async version of [`std::os::unix::fs::symlink`]
+    #[cfg(unix)]
+    #[cfg_attr(docsrs, doc(cfg(unix)))]
     fn symlink(
         &self,
         from: impl AsRef<Path> + Send,
+        to: impl AsRef<Path> + Send,
+    ) -> impl Future<Output = std::io::Result<()>> + Send;
+
+    /// Creates a new symlink to a directory on the filesystem.
+    ///
+    /// This is async version of [`std::os::windows::fs::symlink_dir`].
+    #[cfg(any(windows, doc))]
+    #[cfg_attr(docsrs, doc(cfg(windows)))]
+    fn symlink_dir(
+        &self,
+        from: impl AsRef<Path> + Send,
+        to: impl AsRef<Path> + Send,
+    ) -> impl Future<Output = std::io::Result<()>> + Send;
+
+    /// Creates a new symlink to a non-directory file on the filesystem.
+    ///
+    /// This is async version of [`std::os::windows::fs::symlink_file`].
+    #[cfg(any(windows, doc))]
+    #[cfg_attr(docsrs, doc(cfg(windows)))]
+    fn symlink_file(
+        &self,
+        from: impl AsRef<Path>,
         to: impl AsRef<Path> + Send,
     ) -> impl Future<Output = std::io::Result<()>> + Send;
 

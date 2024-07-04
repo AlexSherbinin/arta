@@ -115,10 +115,12 @@ impl RuntimeTcpStream for TokioTcpStream {
         self.inner.get_ref().peer_addr()
     }
 
+    #[cfg(not(target_os = "wasi"))]
     fn linger(&self) -> std::io::Result<Option<std::time::Duration>> {
         self.inner.get_ref().linger()
     }
 
+    #[cfg(not(target_os = "wasi"))]
     fn set_linger(&self, linger: Option<std::time::Duration>) -> std::io::Result<()> {
         self.inner.get_ref().set_linger(linger)
     }

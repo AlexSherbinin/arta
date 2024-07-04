@@ -6,6 +6,8 @@ use std::{
     path::Path,
 };
 
+use super::FSRuntime;
+
 cfg_if! {
     if #[cfg(windows)] {
         /// Represents a file accessor that implements OS specific methods.
@@ -45,7 +47,7 @@ pub trait RuntimeFile:
     OsFile + FromOsOnwedDescriptor + AsyncRead + AsyncWrite + AsyncSeek + Send + Sync
 {
     /// An async runtime.
-    type Runtime;
+    type Runtime: FSRuntime<File = Self>;
 
     /// Attempts to open a file with specified `OpenOptions`.
     ///

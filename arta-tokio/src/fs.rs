@@ -87,12 +87,31 @@ impl FSRuntime for TokioGlobalRuntime {
         tokio::fs::read_link(path)
     }
 
+    #[cfg(unix)]
     fn symlink(
         &self,
         from: impl AsRef<Path> + Send,
         to: impl AsRef<Path> + Send,
     ) -> impl Future<Output = std::io::Result<()>> + Send {
         tokio::fs::symlink(from, to)
+    }
+
+    #[cfg(windows)]
+    fn symlink_dir(
+        &self,
+        from: impl AsRef<Path> + Send,
+        to: impl AsRef<Path> + Send,
+    ) -> impl Future<Output = std::io::Result<()>> + Send {
+        tokio::fs::symlink_dir(from, to)
+    }
+
+    #[cfg(windows)]
+    fn symlink_file(
+        &self,
+        from: impl AsRef<Path> + Send,
+        to: impl AsRef<Path> + Send,
+    ) -> impl Future<Output = std::io::Result<()>> + Send {
+        tokio::fs::symlink_file(from, to)
     }
 
     fn hard_link(

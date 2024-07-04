@@ -28,6 +28,8 @@ pub trait RuntimeTcpStream: OsSocket + AsyncRead + AsyncWrite + Send + Sync {
     /// Gets the value of the `SO_LINGER` option on this socket.
     ///
     /// For more information about this option, see [`RuntimeTcpStream::set_linger`].
+    #[cfg(not(target_os = "wasi"))]
+    #[cfg_attr(docsrs, doc(cfg(not(target_os = "wasi"))))]
     fn linger(&self) -> std::io::Result<Option<Duration>>;
 
     /// Sets the value of the `SO_LINGER` option on this socket.
@@ -37,6 +39,8 @@ pub trait RuntimeTcpStream: OsSocket + AsyncRead + AsyncWrite + Send + Sync {
     /// for the specified duration as the system attempts to send pending data.
     /// Otherwise, the system may close the socket immediately, or wait for a
     /// default timeout.
+    #[cfg(not(target_os = "wasi"))]
+    #[cfg_attr(docsrs, doc(cfg(not(target_os = "wasi"))))]
     fn set_linger(&self, linger: Option<Duration>) -> std::io::Result<()>;
 
     /// Gets the value of the `TCP_NODELAY` option on this socket.
