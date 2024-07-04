@@ -1,3 +1,4 @@
+//! Async-std specific TCP/UDP communication implementation.
 mod tcp_listener;
 mod tcp_stream;
 mod udp_socket;

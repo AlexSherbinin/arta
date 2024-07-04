@@ -5,14 +5,17 @@ use std::{
     task::{Context, Poll},
 };
 
+/// Async-std specific async stdin implementation.
 pub struct AsyncStdStdin<'a> {
     pub(super) inner: &'a mut async_std::process::ChildStdin,
 }
 
+/// Async-std specific async stdout implementation.
 pub struct AsyncStdStdout<'a> {
     pub(super) inner: &'a mut async_std::process::ChildStdout,
 }
 
+/// Async-std specific async stderr implementation.
 pub struct AsyncStdStderr<'a> {
     pub(super) inner: &'a mut async_std::process::ChildStderr,
 }

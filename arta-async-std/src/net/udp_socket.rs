@@ -51,6 +51,7 @@ cfg_if! {
     }
 }
 
+/// Async-std specific [`RuntimeUdpSocket`] implementation.
 pub struct AsyncStdUdpSocket {
     inner: async_std::net::UdpSocket,
 }

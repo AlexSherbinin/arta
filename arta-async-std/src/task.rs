@@ -1,3 +1,4 @@
+//! Async-std specific green thread management implementation.
 use crate::AsyncStdGlobalRuntime;
 use arta::task::{RuntimeJoinHandle, TaskRuntime};
 use futures::{prelude::Future, FutureExt};
@@ -7,6 +8,7 @@ use std::{
     task::{Context, Poll},
 };
 
+/// Async-std specific [`RuntimeJoinHandle`] implementation.
 pub struct AsyncStdJoinHandle<T> {
     inner: async_std::task::JoinHandle<std::thread::Result<T>>,
 }

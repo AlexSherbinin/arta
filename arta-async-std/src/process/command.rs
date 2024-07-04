@@ -1,16 +1,14 @@
+use super::AsyncStdChild;
+use crate::AsyncStdGlobalRuntime;
+use arta::process::{ProcessRuntime, RuntimeCommand};
+use futures::prelude::Future;
 use std::{
     ffi::OsStr,
     path::Path,
     process::{ExitStatus, Output, Stdio},
 };
 
-use arta::process::{ProcessRuntime, RuntimeCommand};
-use futures::prelude::Future;
-
-use crate::AsyncStdGlobalRuntime;
-
-use super::AsyncStdChild;
-
+/// Async-std specific [`RuntimeCommand`] implementation.
 pub struct AsyncStdCommand {
     inner: async_std::process::Command,
 }

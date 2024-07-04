@@ -56,6 +56,7 @@ cfg_if! {
     }
 }
 
+/// Async-std specific [`RuntimeTcpStream`] implementation.
 pub struct AsyncStdTcpStream {
     pub(super) inner: async_std::net::TcpStream,
 }

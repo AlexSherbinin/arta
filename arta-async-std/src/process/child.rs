@@ -4,6 +4,7 @@ use arta::process::RuntimeChild;
 use futures::prelude::Future;
 use std::process::{ExitStatus, Output};
 
+/// Async-std specific [`RuntimeChild`] implementation.
 pub struct AsyncStdChild {
     pub(super) inner: async_std::process::Child,
 }

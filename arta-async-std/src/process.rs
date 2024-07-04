@@ -1,3 +1,4 @@
+//! Async-std specific process manipulation implementation.
 mod child;
 mod command;
 mod outputs;

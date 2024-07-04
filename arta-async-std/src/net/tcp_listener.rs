@@ -52,6 +52,7 @@ cfg_if! {
     }
 }
 
+/// Async-std specific [`RuntimeTcpListener`] implementation.
 pub struct AsyncStdTcpListener {
     inner: async_std::net::TcpListener,
 }

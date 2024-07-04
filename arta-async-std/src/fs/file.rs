@@ -45,6 +45,8 @@ cfg_if! {
         }
     }
 }
+
+/// Async-std specific [`RuntimeFile`] implementation.
 pub struct AsyncStdFile {
     inner: async_std::fs::File,
 }

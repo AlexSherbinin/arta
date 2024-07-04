@@ -6,6 +6,7 @@ use std::{
     path::PathBuf,
 };
 
+/// Async-std specific [`RuntimeDirEntry`] implementation.
 pub struct AsyncStdDirEntry {
     pub(super) inner: async_std::fs::DirEntry,
 }
