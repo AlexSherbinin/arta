@@ -2,7 +2,7 @@
 name = "arta-tokio"
 description = "Async abstractions implementation for Tokio"
 authors.workspace = true
-version = "0.1.1"
+version = "0.2.0"
 repository.workspace = true
 readme.workspace = true
 license.workspace = true
