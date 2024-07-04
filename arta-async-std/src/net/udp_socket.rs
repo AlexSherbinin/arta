@@ -151,7 +151,7 @@ impl RuntimeUdpSocket for AsyncStdUdpSocket {
     }
 
     fn multicast_ttl_v4(&self) -> std::io::Result<u32> {
-        todo!()
+        self.inner.multicast_ttl_v4()
     }
 
     fn join_multicast_v6(
