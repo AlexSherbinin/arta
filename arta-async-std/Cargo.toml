@@ -2,7 +2,7 @@
 name = "arta-async-std"
 description = "Async abstractions implementation for async-std"
 authors.workspace = true
-version = "0.2.0"
+version = "0.2.1"
 repository.workspace = true
 readme.workspace = true
 license.workspace = true
@@ -11,7 +11,7 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
-arta = { version = "0.1.1", path = ".." }
+arta = { version = "^0.2", path = ".." }
 async-std = { version = "1.12.0", features = ["unstable", "std"] }
 cfg-if = "1.0.0"
 futures = "0.3.30"

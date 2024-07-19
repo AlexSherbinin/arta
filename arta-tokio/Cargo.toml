@@ -2,7 +2,7 @@
 name = "arta-tokio"
 description = "Async abstractions implementation for Tokio"
 authors.workspace = true
-version = "0.2.0"
+version = "0.2.1"
 repository.workspace = true
 readme.workspace = true
 license.workspace = true
@@ -23,7 +23,7 @@ rt = ["tokio/rt"]
 process = ["tokio/process"]
 
 [dependencies]
-arta = { version = "0.1.0", path = ".." }
+arta = { version = "^0.2", path = ".." }
 cfg-if = "1.0.0"
 futures = "0.3.30"
 pin-project-lite = "0.2.14"
